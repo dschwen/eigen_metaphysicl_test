@@ -21,19 +21,8 @@ typedef MetaPhysicL::DualNumber<Real, DNDerivativeType, /*allow_skiping_derivati
 // define dual number based matrix type
 typedef Eigen::Matrix<DualReal, 6, 6, Eigen::DontAlign> DualMatrix;
 
-// custom type trait
-namespace std
-{
-template <>
-struct is_convertible<DualMatrix, DualReal>
-{
-  static constexpr bool value = false;
-};
-} // namespace std
-
 int main(int argc, char* argv[])
 {
-
   // build symmetric matrix
   auto X = DualMatrix::Random(6, 6);
   auto A = X + X.transpose();
