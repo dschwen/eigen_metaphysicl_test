@@ -16,11 +16,21 @@ typedef MetaPhysicL::DualNumber<Real, DNDerivativeType, /*allow_skiping_derivati
 
 // Eigen includes
 #include "Eigen/Core"
+#include "Eigen/Eigenvalues"
 
 int main(int argc, char* argv[])
 {
-  DualReal a = 10;
-  DualReal b = 5;
-  std::cout << a * b << '\n';
+  // define dual number based matrix type
+  typedef Eigen::Matrix<DualReal, 6, 6, Eigen::DontAlign> DualMatrix;
+
+  // build symmetric matrix
+  auto X = DualMatrix::Random(6, 6);
+  auto A = X + X.transpose();
+
+  Eigen::SelfAdjointEigenSolver<DualMatrix> es(A);
+
+  std::cout << "Eigenvalues: " << es.eigenvalues() << '\n';
+  std::cout << "Eigenvectors: " << es.eigenvectors() << '\n';
+
   return 0;
 }
