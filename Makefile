@@ -1,5 +1,6 @@
-CPPFLAGS += -I./MetaPhysicL/install/include -I./eigen
-LDFLAGS += -L./MetaPhysicL/install/lib -lmetaphysicl
+METAPHYSICL_DIR ?= ./MetaPhysicL/install
+CPPFLAGS += -I$(METAPHYSICL_DIR)/include -I./eigen
+LDFLAGS += -L$(METAPHYSICL_DIR)/lib -lmetaphysicl
 
 all:
 	echo "Specify a valid target"
