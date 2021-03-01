@@ -5,7 +5,7 @@ all:
 	echo "Specify a valid target"
 
 test1: test1.C
-	$(CXX) -o test1 test1.C $(CPPFLAGS) $(LDFLAGS)
+	$(CXX) --std=c++14 -o test1 test1.C $(CPPFLAGS) $(LDFLAGS)
 
 test2: test2.C
-	$(CXX) -o test2 test2.C $(CPPFLAGS) $(LDFLAGS)
+	$(CXX) --std=c++14 -o test2 test2.C $(CPPFLAGS) $(LDFLAGS)
