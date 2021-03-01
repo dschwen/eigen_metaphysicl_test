@@ -10,3 +10,6 @@ test1: test1.C
 
 test2: test2.C
 	$(CXX) --std=c++14 -o test2 test2.C $(CPPFLAGS) $(LDFLAGS)
+
+clean:
+	rm -f test1 test2
